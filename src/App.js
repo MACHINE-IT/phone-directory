@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
+import Header from './Header';
+import './App.css';
 
 class App extends Component {
   render() {
+
     return (
       <div>
-        {/*<div className="header">
-          Phone Directory
+        <Header />
+        <div className="component-body-container">
+          <button className="custom-btn add-btn">Add</button>
+          <div className="grid-container heading-container">
+            <span className="grid-item name-heading">Name</span>
+            <span className="grid-item phone-heading">Phone Number</span>
+          </div>
         </div>
-        <button>Add</button>
-        <div>
-          <span>Name</span>
-          <span>Phone Number</span>
-    </div>*/}
-    <label htmlFor="name">Name: </label>
-    <input id="name" type="text" placeholder="type here" defaultValue="Yogesh Kumar"/>    
       </div>
     );
   }
