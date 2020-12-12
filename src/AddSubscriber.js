@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import './AddSubscriber.css'
+import './AddSubscriber.css';
+import {Link} from 'react-router-dom';
 
 export class AddSubscriber extends Component {
 
@@ -20,23 +21,39 @@ export class AddSubscriber extends Component {
         console.log(this.state);
     }
 
+    onFormSubmitted = (e) => {
+        e.preventDefault();
+        console.log(this.state);
+        this.props.addSubscriberHandler(this.state);
+        alert(this.state.name + " Added Successfully!")
+        Array.from(document.querySelectorAll("input")).forEach(
+            input => (input.value = "")
+          );
+        this.setState({id: 0, name: '', phone: ''})
+        this.props.history.push("/");
+    }
+
     render() {
-        //const {name, phone} = this.state;
+        const {name, phone} = this.state;
         return (
             <div>
-            <Header heading="Adding Subscriber" />
+            <Header heading="Add Subscriber" />
                 <div className="component-body-container">
-                    <button className="custom-btn">Back</button>
-                    <form className="subscriber-form">
+
+                    <Link to="/"><button className="custom-btn">Back</button></Link>
+
+                    <form className="subscriber-form" onSubmit={this.onFormSubmitted.bind(this)}>
                         <label htmlFor="name" className="label-control">Name</label><br/>
-                        <input id="name" type="text" className="input-control" name="name"onChange={this.inputchangedHandler}/><br/><br/>
+                        <input id="name" type="text" className="input-control" name="name" onChange={this.inputchangedHandler}/><br/><br/>
                         <label htmlFor="phone" className="label-control">Phone</label><br/>
                         <input type="text" className="input-control" name="phone" onChange={this.inputchangedHandler}/><br/><br/>
+                        
                         <div className="subscriber-info-container">
                             <span className="subscriber-to-add-heading">Subscriber to be added: </span><br/>
-                            <span className="subscriber-info">Name: {this.state.name}</span><br/>
-                            <span className="subscriber-info">Phone: {this.state.phone}</span><br/>
+                            <span className="subscriber-info">Name: {name}</span><br/>
+                            <span className="subscriber-info">Phone: {phone}</span><br/>
                         </div>
+
                         <button type="submit" className="custom-btn add-btn">Add</button>
                     </form>
                 </div>
