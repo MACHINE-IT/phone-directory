@@ -2,11 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './common/common.css'
-import ShowSubscribers from './ShowSubscribers';
-import AddSubscriber from './AddSubscriber';
 import reportWebVitals from './reportWebVitals';
 import PhoneDirectory from './PhoneDirectory';
-import MainPage from './MainPage';
 
 ReactDOM.render(
   <React.StrictMode>
