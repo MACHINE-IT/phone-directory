@@ -7,8 +7,9 @@ import {Link} from 'react-router-dom';
 
 
 class ShowSubscribers extends Component {
-  deleteHandler(message) {
-    
+
+  onDeletedClick(subscriberId, message) {    
+    this.props.deleteSubscriberHandler(subscriberId); 
     alert(message + " Deleted!");
   }
 
@@ -29,7 +30,7 @@ class ShowSubscribers extends Component {
                 <span className="grid-item">{sub.name}</span>
                 <span className="grid-item">{sub.phone}</span>
                 <span className="grid-item action-btn-container">
-                  <button className="custom-btn delete-btn" onClick={this.deleteHandler.bind(this, sub.name)}>Delete</button>
+                  <button className="custom-btn delete-btn" onClick={this.onDeletedClick.bind(this, sub.id, sub.name)}>Delete</button>
                 </span>
               </div>
             })
@@ -38,7 +39,7 @@ class ShowSubscribers extends Component {
       </div>
     );
   }
-  
+
 }
 
 export default ShowSubscribers;
