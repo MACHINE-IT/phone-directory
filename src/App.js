@@ -3,20 +3,6 @@ import Header from './Header.js';
 import './App.css';
 import AddSubscriber from './AddSubscriber.js';
 
-{/*    let subscribers = [
-      {
-        id: 1,
-        name: "Shilpa Bhat",
-        phone: "8888888888"
-      },
-      {
-        id: 2,
-        name: "Srishti Gupta",
-        phone: "9999999999"
-      }
-    
-    ];
-    */}
 
 class App extends Component {
   deleteHandler(message) {
